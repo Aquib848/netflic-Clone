@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -87,7 +87,10 @@ function SignUp() {
     >
       <div className="h-[100vh] flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="w-full bg-[#000000a2] rounded-lg shadow sm:my-0 md:mt-0 sm:max-w-lg xl:p-0 border-2 border-stone-800 lg:border-0">
-          <Fade>
+          <motion.div
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}>
             <div>
               <div className="p-6 space-y-4 md:space-y-6 sm:p-12">
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl dark:text-white">
@@ -205,7 +208,7 @@ function SignUp() {
                 </form>
               </div>
             </div>
-          </Fade>
+          </motion.div>
         </div>
       </div>
     </section>

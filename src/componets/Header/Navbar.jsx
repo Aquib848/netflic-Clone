@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import { Transition } from "@headlessui/react";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import { AuthContext } from "../../Context/UserContext";
@@ -52,7 +52,10 @@ function Navbar(props) {
   };
 
   return (
-    <Fade>
+    <motion.div
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}>
       <header
         className={
           props.playPage
@@ -308,7 +311,7 @@ function Navbar(props) {
           </Transition>
         </nav>
       </header>
-    </Fade>
+    </motion.div>
   );
 }
 
